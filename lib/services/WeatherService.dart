@@ -7,7 +7,7 @@ class WeatherService {
 
   static Future<Weather> fetchCurrentWeather({query, String lat = "", String lon =""}) async {
     var url =
-        'http://api.openweathermap.org/data/2.5/weather?q=$query&lat=$lat&lon=$lon&appid=$_apiKey&units=metric';
+        'http://api.openweathermap.org/data/2.5/weather?q=$query&lat=$lat&lon=$lon&lang=ru&appid=$_apiKey&units=metric';
     final response = await http.post(url);
 
     if (response.statusCode == 200) {
@@ -19,7 +19,7 @@ class WeatherService {
 
   static Future<List<Weather>> fetchHourlyWeather({required String query, String lat = "", String lon =""}) async {
     var url =
-        'http://api.openweathermap.org/data/2.5/forecast?q=$query&lat=$lat&lon=$lon&appid=$_apiKey&units=metric';
+        'http://api.openweathermap.org/data/2.5/forecast?q=$query&lat=$lat&lon=$lon&lang=ru&appid=$_apiKey&units=metric';
     final response = await http.post(url);
 
     if (response.statusCode == 200) {
